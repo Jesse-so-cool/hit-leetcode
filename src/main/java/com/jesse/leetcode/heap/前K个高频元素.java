@@ -1,11 +1,11 @@
 package com.jesse.leetcode.heap;
 
-import jdk.nashorn.internal.parser.JSONParser;
+import com.google.gson.Gson;
 
 import java.util.*;
 
 /**
- * 优先队列问题
+ * 优先队列典型问题
  * 优先队列的本质是一个二叉堆结构。
  * <p>
  * 关键词 “前K个” 我们要联想到优先队列
@@ -16,19 +16,19 @@ import java.util.*;
 public class 前K个高频元素 {
 
     public static void main(String[] args) {
-        int[] datas = {1, 2, 3, 1, 2, 3, 4, 5, 6, 1, 2, 4, 6, 2, 3, 4, 5, 6, 2, 2, 2, 1, 1, 1};
+        int[] datas = {1, 2, 3, 1, 2, 3, 4, 5, 6, 1, 2, 4, 6, 2, 3, 4, 5, 6, 2, 2, 2, 1, 1, 1,4};
 
         final List list = topKFrequent(datas, 3);
 
-        System.out.println();
+        System.out.println(new Gson().toJson(list));
     }
 
     public static List topKFrequent(int[] nums, int k) {
         List<Integer> list = new ArrayList<>();
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
-            if (map.containsKey(map)) {
-                map.put(num, map.get(num) + 1)
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
             } else {
                 map.put(num, 1);
             }
@@ -50,9 +50,8 @@ public class 前K个高频元素 {
             }
         }
 
-        final Iterator<Integer> iterator = priorityQueue.iterator();
-        if (iterator.hasNext()) {
-            list.add(iterator.next());
+        while (!priorityQueue.isEmpty()) {
+            list.add(priorityQueue.remove());
         }
         return list;
     }
