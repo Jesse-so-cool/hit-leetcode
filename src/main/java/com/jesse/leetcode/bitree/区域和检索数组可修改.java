@@ -29,8 +29,8 @@ public class 区域和检索数组可修改 {
     }
 
     public void update(int i, int val) {
-        bit.update(i+1,val-datas[i-1]);
-        datas[i-1] = val;
+        bit.update(i+1,val-datas[i]);
+        datas[i] = val;
     }
 
     public int sumRange(int i, int j) {
