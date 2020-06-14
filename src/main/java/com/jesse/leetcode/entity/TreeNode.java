@@ -4,26 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * leetcode 答题专用
  * @author jesse hsj
  * @date 2020/1/17
  */
-public class MyTreeNode {
+public class TreeNode {
 
     public int val;
-    public MyTreeNode left;
-    public MyTreeNode right;
+    public TreeNode left;
+    public TreeNode right;
 
-    public MyTreeNode(int x) {
+    public TreeNode(int x) {
         val = x;
     }
 
-    public static MyTreeNode create(Integer datas[]) {//初始化二叉树,将传进来的值创建为二叉树
-        List<MyTreeNode> list = new ArrayList<MyTreeNode>();//新建一个list集合，将数据变为各个节点
+    public static TreeNode create(Integer datas[]) {//初始化二叉树,将传进来的值创建为二叉树
+        List<TreeNode> list = new ArrayList<TreeNode>();//新建一个list集合，将数据变为各个节点
         for (Integer data : datas) {
             if (data == null) {
-                list.add(new MyTreeNode(-1));
+                list.add(null);
             } else {
-                list.add(new MyTreeNode(data));
+                list.add(new TreeNode(data));
 
             }
         }
@@ -38,7 +39,7 @@ public class MyTreeNode {
         return list.get(0);
     }
 
-    public static void preOrder(MyTreeNode root) {//利用递归实现前序遍历，输出打印结果
+    public static void preOrder(TreeNode root) {//利用递归实现前序遍历，输出打印结果
         if (root != null) {
             if (root.val != -1) {
                 System.out.print(" " + root.val);
@@ -50,7 +51,7 @@ public class MyTreeNode {
         }
     }
 
-    public static void midOrder(MyTreeNode root) {//利用递归实现前序遍历，输出打印结果
+    public static void midOrder(TreeNode root) {//利用递归实现前序遍历，输出打印结果
         if (root != null) {
             midOrder(root.left);
             if (root.val != -1) {
@@ -62,7 +63,7 @@ public class MyTreeNode {
         }
     }
 
-    public static void postOrder(MyTreeNode root) {//利用递归实现前序遍历，输出打印结果
+    public static void postOrder(TreeNode root) {//利用递归实现前序遍历，输出打印结果
         if (root != null) {
             postOrder(root.left);
             postOrder(root.right);
@@ -75,7 +76,7 @@ public class MyTreeNode {
     }
 
     public static void main(String[] args) {
-        MyTreeNode myTreeNode = MyTreeNode.create(new Integer[]{1, 2, 3, 4, 5, 6});
+        TreeNode myTreeNode = TreeNode.create(new Integer[]{3,9,20,null,null,15,7});
 
         preOrder(myTreeNode);
         System.out.println();
@@ -84,9 +85,9 @@ public class MyTreeNode {
         postOrder(myTreeNode);
     }
 
-    public List<MyTreeNode> adj() {
+    public List<TreeNode> adj() {
 
-        List<MyTreeNode> ls
+        List<TreeNode> ls
                  = new ArrayList<>();
 
         if (this.left!=null) ls.add(this.left);
