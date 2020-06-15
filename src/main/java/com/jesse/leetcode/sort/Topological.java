@@ -21,7 +21,7 @@ public class Topological {
         System.out.println(new Topological().canFinish(6,prerequisites));
     }
 
-    //广度优先+贪心算法 点解呢 明天搞
+    //广度优先+贪心算法
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         if (numCourses <= 0) {
             return false;
