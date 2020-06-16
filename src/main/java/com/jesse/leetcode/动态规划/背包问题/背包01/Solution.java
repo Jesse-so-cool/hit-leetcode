@@ -1,4 +1,4 @@
-package com.jesse.leetcode.动态规划.背包01;
+package com.jesse.leetcode.动态规划.背包问题.背包01;
 
 /**
  * 描述：
