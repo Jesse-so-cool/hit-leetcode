@@ -1,8 +1,4 @@
-package com.jesse.leetcode.动态规划.最长递增序列和;
-
-import javax.xml.namespace.QName;
-import java.util.Arrays;
-import java.util.Map;
+package com.jesse.leetcode.动态规划.最长递增序列;
 
 /**
  * ？ 最优子在哪体现
