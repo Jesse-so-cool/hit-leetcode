@@ -16,17 +16,20 @@ public class 有效的括号 {
         System.out.println(isValid);
     }
 
-    private static boolean isValid(String a) {
-        if (a.length()%2 == 1) {
+    private static boolean isValid(String s) {
+        if (s.length()%2 == 1) {
             return false;
         }
 
         Stack<Character> stack = new Stack();
-        for (int i = 0; i < a.length(); i++) {
-            char charAt = a.charAt(i);
+        for (int i = 0; i < s.length(); i++) {
+            char charAt = s.charAt(i);
             if (charAt == '{' || charAt == '(' || charAt == '[') {
                 stack.push(charAt);
             } else if (charAt == '}' || charAt == ')' || charAt == ']') {
+                if (stack.isEmpty()) {
+                    return false;
+                }
                 char pop = stack.pop();
                 if (pop == '{' && charAt != '}') {
                     return false;

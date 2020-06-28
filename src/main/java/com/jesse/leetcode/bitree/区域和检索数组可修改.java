@@ -7,7 +7,7 @@ package com.jesse.leetcode.bitree;
  * @date 2020/6/9
  */
 public class 区域和检索数组可修改 {
-    BIT2 bit = null;
+    BIT bit = null;
     int[] datas;
     public static void main(String[] args) {
         int [] datas = {1,2,3,4,5,6};
@@ -19,7 +19,7 @@ public class 区域和检索数组可修改 {
 
     }
     public 区域和检索数组可修改(int[] nums) {
-        bit = new BIT2();
+        bit = new BIT();
         bit.datas = new int[nums.length];
         datas = nums;
         for (int i = 0; i < nums.length; i++) {

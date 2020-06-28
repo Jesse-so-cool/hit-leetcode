@@ -39,7 +39,7 @@ public class 前K个高频元素 {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                return map.get(o1) - map.get(o2); //构建的是最大堆
+                return map.get(o1) - map.get(o2); //构建的是最小堆
             }
         });
 

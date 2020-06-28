@@ -37,21 +37,19 @@ public class Solution {
             dp[i][0] = 1;
         }
 
+                //TODO 这里我用了k 表示使用了几个i 但是labuladong没有用k 同样能解 表示疑问
         for (int i = 1; i <= coins.length; i++) {
             for (int j = 1; j <= amount; j++) {
-                int 选择i = 0;
-                //TODO 这里我用了k 表示使用了几个i 但是labuladong没有用k 同样能解 表示疑问
+                int chooseI = 0;
                 for (int k = 1; k < Integer.MAX_VALUE; k++) {
                     if (j-coins[i-1]*k >=0) {
-                        选择i += dp[i-1][j-coins[i-1]*k];//选择i 说明
+                        chooseI += dp[i-1][j-coins[i-1]*k];//选择i 说明
                     }else {
                         break;
                     }
                 }
-                //int 选择i = dp[i-1][j-coins[i-1]*k];//选择i 说明
-                int 不选择i = dp[i-1][j];//选择i 说明
-
-                dp[i][j] = 不选择i + 选择i;
+                int dontChooseI = dp[i-1][j];//选择i 说明
+                dp[i][j] = dontChooseI + chooseI;
             }
         }
 
