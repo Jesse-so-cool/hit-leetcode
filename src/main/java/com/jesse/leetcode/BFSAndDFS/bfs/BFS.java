@@ -1,4 +1,4 @@
-package com.jesse.leetcode.BFSAndDFS;
+package com.jesse.leetcode.BFSAndDFS.bfs;
 
 import com.jesse.leetcode.entity.MyTreeNode;
 
