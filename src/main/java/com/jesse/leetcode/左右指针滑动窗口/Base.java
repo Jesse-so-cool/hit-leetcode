@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 最小覆盖子串
  *
  * @author jesse hsj
  * @date 2020/6/23 10:21
@@ -31,6 +30,8 @@ public class Base {
             char key = s.charAt(right);
             right++;
             //TODO 进行窗口内数据的一系列更新 这边为+
+
+            //初步筛选后就可以进行对左边的窗口进行收缩
             while (valid == need.size()) {
                 //即将移出去的窗口
                 char k = s.charAt(left);
