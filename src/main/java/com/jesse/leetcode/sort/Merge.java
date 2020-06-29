@@ -33,44 +33,39 @@ public class Merge implements Sort {
         sort(nums, 0, nums.length - 1);
     }
 
-    private void sort(int[] nums, int start, int end) {
-        if (start >= end) {
-            return;
-        }
-        int mid = start + (end - start) / 2;
+    //T(N) = 2T(N/2)+O(N)
+    private void sort(int[] nums, int low, int high) {
+        if (low >= high) return;
 
-        sort(nums, start, mid);
-        sort(nums, mid + 1, end);
+        int mid = low + (high - low) / 2;
+        sort(nums, low, mid);
+        sort(nums, mid + 1, high);
 
-        merge(nums, start, mid, end);
-
-
+        merge(nums, low, mid, high);
     }
 
     //这里如果不理解 可以看看merge.md
-    private void merge(int[] nums, int start, int mid, int end) {
+    private void merge(int[] nums, int k, int mid, int end) {
         int copy[] = Arrays.copyOf(nums, nums.length);
+        int i = k;//指向左边正在处理的位置指针
+        int j = mid + 1;//指向右边正在处理的位置指针
 
-        int st = start;
-
-
-        int mi = mid + 1;//指向右边正在处理的位置指针
-
-        //start是指向左边正在处理的位置指针
-        while (st <= end) {
-
-            if (start > mid) {
-                nums[st] = copy[mi++];
-            } else if (mi > end) {
-                nums[st] = copy[start++];
-            } else if (copy[start] < copy[mi]) {
-                nums[st] = copy[start++];
-            } else if (copy[start] >= copy[mi]) {
-                nums[st] = copy[mi++];
+        //start是指nums的index指针
+        while (k <= end) {
+            if (i > mid)  {
+                nums[k] = copy[j];
+                j++;
+            }else if (j > end ) {
+                nums[k] = copy[i];
+                i++;
+            } else if (copy[i] > copy[j]){
+                nums[k] = copy[j];
+                j++;
+            } else if (copy[i] < copy[j]) {
+                nums[k] = copy[i];
+                i++;
             }
-            st++;
+            k++;
         }
-
-
     }
 }

@@ -35,15 +35,22 @@ public class Quick implements Sort{
         sort(nums, 0, nums.length - 1);
     }
 
+    /**
+     * T（n）≤2T（n/2） +n，T（1）=0
+     * T（n）≤2（2T（n/4）+n/2） +n=4T（n/4）+2n
+     * T（n）≤4（2T（n/8）+n/4） +2n=8T（n/8）+3n
+     * ……
+     * T（n）≤nT（1）+（log2n）×n= O(nlogn)
+     */
     private void sort(int[] nums, int low, int high) {
-
         if (low >= high ) return;
 
+        //这个base值被算出来后 是不会再换位置的
+        //利用这个特性 可以做一些需要特定下标的题目
         int base = partition(nums,low,high);
 
         sort(nums,low,base);
         sort(nums,base+1,high);
-
     }
 
     private int partition(int[] nums, int low, int high) {
