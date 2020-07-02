@@ -1,4 +1,4 @@
-package com.jesse.leetcode.动态规划.最长公共子序列;
+package com.jesse.leetcode.dp.最长公共子序列;
 
 /**
  * 输入：text1 = "abcde", text2 = "ace"

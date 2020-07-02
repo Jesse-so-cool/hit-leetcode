@@ -1,4 +1,4 @@
-package com.jesse.leetcode.动态规划.背包问题.子集背包问题.分割等和子集;
+package com.jesse.leetcode.dp.背包问题.子集背包问题.分割等和子集;
 
 /**
  * 输入: [1, 5, 11, 5]

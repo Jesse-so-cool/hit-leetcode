@@ -1,4 +1,4 @@
-package com.jesse.leetcode.动态规划.最长重复子数组;
+package com.jesse.leetcode.dp.最长重复子数组;
 
 /**
  * 输入:

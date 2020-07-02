@@ -1,9 +1,6 @@
-package com.jesse.leetcode.动态规划.最大子数组;
+package com.jesse.leetcode.dp.最大子数组;
 
 import java.util.Arrays;
-
-import static java.lang.Integer.max;
-import static java.lang.Integer.min;
 
 /**
  *

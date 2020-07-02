@@ -1,4 +1,4 @@
-package com.jesse.leetcode.动态规划.最长递增序列;
+package com.jesse.leetcode.dp.最长递增序列;
 
 /**
  * ？ 最优子在哪体现

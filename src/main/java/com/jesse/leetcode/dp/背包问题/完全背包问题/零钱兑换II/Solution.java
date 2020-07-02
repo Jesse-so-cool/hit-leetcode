@@ -1,4 +1,4 @@
-package com.jesse.leetcode.动态规划.背包问题.完全背包问题.零钱兑换II;
+package com.jesse.leetcode.dp.背包问题.完全背包问题.零钱兑换II;
 
 /**
  * @description
