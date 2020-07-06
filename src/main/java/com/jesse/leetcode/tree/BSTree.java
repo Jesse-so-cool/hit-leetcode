@@ -40,6 +40,24 @@ public class BSTree {
         return list.get(0);
     }
 
+    //排好序 -10,-3,0,5,9
+    public BSTree createBST(int datas[]) {
+        return createBST(datas,0,datas.length-1);
+    }
+
+    private BSTree createBST(int[] datas, int start, int end) {
+        if (start > end) {
+            return null;
+        }
+
+        int mid = start + (end-start)/2;
+        BSTree root = new BSTree(datas[mid]);
+        root.left = createBST(datas,start,mid-1);
+        root.right = createBST(datas,mid+1,end);
+        return root;
+    }
+
+
     public static void preOrder(BSTree root) {//利用递归实现前序遍历，输出打印结果
         if (root != null) {
             if (root.val != -1) {
