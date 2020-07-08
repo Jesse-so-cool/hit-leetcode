@@ -25,7 +25,6 @@ public class TreeNode {
                 list.add(null);
             } else {
                 list.add(new TreeNode(data));
-
             }
         }
         for (int i = 0; i < list.size() / 2; i++) {

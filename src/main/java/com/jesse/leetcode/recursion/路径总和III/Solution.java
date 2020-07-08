@@ -20,7 +20,6 @@ public class Solution {
 
     //算出root下 有几个符合要求的路径
     public int pathSum(TreeNode root, int sum) {
-
         if (root == null) {
             return 0;
         }
