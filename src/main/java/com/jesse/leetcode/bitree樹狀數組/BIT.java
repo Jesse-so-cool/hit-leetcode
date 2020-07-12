@@ -1,4 +1,4 @@
-package com.jesse.leetcode.bitree;
+package com.jesse.leetcode.bitree樹狀數組;
 
 /**
  * up主 搭救 https://www.bilibili.com/video/BV1LW411e7jo?from=search&seid=1815853072203989825
@@ -9,6 +9,8 @@ package com.jesse.leetcode.bitree;
  *
  *         所以我们可以理解为datas的7 管理 7,6,4
  *
+ * 时间复杂度：
+ *      update 和 query 都是logn
  * @author jesse hsj
  * @date 2020/6/9
  */

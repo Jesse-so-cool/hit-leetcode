@@ -45,27 +45,26 @@ public class Merge implements Sort {
     }
 
     //这里如果不理解 可以看看merge.md
-    private void merge(int[] nums, int k, int mid, int end) {
-        int copy[] = Arrays.copyOf(nums, nums.length);
-        int i = k;//指向左边正在处理的位置指针
-        int j = mid + 1;//指向右边正在处理的位置指针
-
-        //start是指nums的index指针
-        while (k <= end) {
-            if (i > mid)  {
-                nums[k] = copy[j];
-                j++;
-            }else if (j > end ) {
-                nums[k] = copy[i];
-                i++;
-            } else if (copy[i] > copy[j]){
-                nums[k] = copy[j];
-                j++;
-            } else if (copy[i] < copy[j]) {
-                nums[k] = copy[i];
-                i++;
+    private void merge(int[] nums, int low, int mid, int high) {
+        int temp[] = Arrays.copyOf(nums, nums.length);
+        int left = low;
+        int right = mid + 1;
+        for (int i = low; i <= high; i++) {
+            if (right > high) {
+                nums[i] = temp[left++];
+                continue;
             }
-            k++;
+            if (left > mid) {
+                nums[i] = temp[right++];
+                continue;
+            }
+            if (temp[left] > temp[right]) {
+                nums[i] = temp[right++];
+            }else if (temp[left] <= temp[right]){
+                nums[i] = temp[left++];
+            }
         }
     }
+
+
 }
