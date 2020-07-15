@@ -21,7 +21,7 @@ import com.google.gson.Gson;
 public class Bubble implements Sort {
 
     public static void main(String[] args) {
-        int nums[] = {2,4,1,3,5};
+        int nums[] = {54,21,73,84,60,18,62,59,89,89,41,55,27,65,94,61,12,76,35,48,0,60,84,9,28,55,4,67,86,33};
         new Bubble().sort(nums);
         System.out.println(new Gson().toJson(nums));
     }
