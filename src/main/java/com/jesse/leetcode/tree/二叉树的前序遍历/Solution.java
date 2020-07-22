@@ -7,20 +7,22 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- *
  * //迭代写法
+ *
  * @author jesse hsj
  * @date 2020/7/12
  */
 public class Solution {
     public static void main(String[] args) {
-        Integer[] t = {1,4,2,3};
+        Integer[] t = {1, 4, 2, 3};
         System.out.println(new Solution().inorderTraversal(TreeNode.create(t)));
     }
+
     class SignNode {
         TreeNode node;
         int sign;
-        public SignNode (TreeNode node,int sign) {
+
+        public SignNode(TreeNode node, int sign) {
             this.node = node;
             this.sign = sign;
         }
@@ -28,21 +30,38 @@ public class Solution {
 
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        Stack<SignNode> stack = new Stack();
-        stack.push(new SignNode(root,0));
+        Stack<Object> stack = new Stack();
+        stack.push(root);
         while (!stack.isEmpty()) {
-            SignNode signNode = stack.pop();
-            TreeNode node = signNode.node;
-            if (node == null)
-               continue;
-            if (signNode.sign == 0) {
-                if (node.right!=null) stack.push(new SignNode(node.right,0));
-                if (node.left!=null) stack.push(new SignNode(node.left,0));
-                stack.push(new SignNode(node,1));
-            }else {
-                list.add(node.val);
+            Object o = stack.pop();
+            if (o == null)
+                continue;
+            if (o instanceof TreeNode) {
+                TreeNode node = (TreeNode) o;
+                if (node.right != null) stack.push(node.right);
+                if (node.left != null) stack.push(node.left);
+                stack.push(node.val);
+            } else {
+                list.add((Integer) o);
             }
         }
         return list;
     }
+
+    public List<Integer> test(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node == null)
+                continue;
+            if (node.right != null) stack.push(node.right);
+            if (node.left != null) stack.push(node.left);
+            stack.push(node);
+        }
+        return list;
+    }
+
+
 }
