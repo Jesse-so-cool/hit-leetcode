@@ -17,7 +17,8 @@ public class TreeNode {
     public TreeNode(int x) {
         val = x;
     }
-
+    public TreeNode() {
+    }
     public static TreeNode create(Integer datas[]) {//初始化二叉树,将传进来的值创建为二叉树
         List<TreeNode> list = new ArrayList<TreeNode>();//新建一个list集合，将数据变为各个节点
         for (Integer data : datas) {
