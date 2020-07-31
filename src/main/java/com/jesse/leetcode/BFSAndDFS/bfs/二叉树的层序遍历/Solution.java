@@ -1,4 +1,4 @@
-package com.jesse.leetcode.BFSAndDFS.dfs.二叉树的层序遍历;
+package com.jesse.leetcode.BFSAndDFS.bfs.二叉树的层序遍历;
 
 import com.jesse.leetcode.entity.TreeNode;
 
