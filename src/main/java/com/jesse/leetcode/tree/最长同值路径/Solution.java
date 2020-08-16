@@ -8,11 +8,11 @@ import com.jesse.leetcode.entity.TreeNode;
  * 注意：两个节点之间的路径长度由它们之间的边数表示。
  * 输入:
  *
- *               5
+ *               1
  *              / \
  *             4   5
  *            / \   \
- *           1   1   5
+ *           4   4   5
  * 输出:
  *
  * 2
@@ -23,7 +23,7 @@ import com.jesse.leetcode.entity.TreeNode;
  */
 public class Solution {
     public static void main(String[] args) {
-            Integer[] nums = {5, 4,5, 1, 1, 5};
+            Integer[] nums = {1, 4,5, 4, 4, 5};
             TreeNode t = TreeNode.create(nums);
             System.out.println(new Solution().longestUnivaluePath(t));
         }
@@ -41,14 +41,14 @@ public class Solution {
         int right = dp(root.right);
 
         if (root.left != null && val == root.left.val && root.right != null && val == root.right.val) {
-            max = Integer.max(max,left+right+1);
+            max = Integer.max(max,left+right+2);
             return 1 + Integer.max(left,right);
         }
-        if (root.left != null && val == root.left.val && (root.right == null || val == root.right.val)) {
+        if (root.left != null && val == root.left.val && (root.right == null || val != root.right.val)) {
             max = Integer.max(max,left+1);
             return 1 + left;
         }
-        if (root.right != null && val == root.right.val && (root.left == null || val == root.left.val)) {
+        if (root.right != null && val == root.right.val && (root.left == null || val != root.left.val)) {
             max = Integer.max(max,right+1);
             return 1 + right;
         }

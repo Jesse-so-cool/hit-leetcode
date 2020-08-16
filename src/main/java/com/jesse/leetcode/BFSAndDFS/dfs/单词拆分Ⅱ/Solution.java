@@ -3,6 +3,7 @@ package com.jesse.leetcode.BFSAndDFS.dfs.单词拆分Ⅱ;
 import com.jesse.leetcode.entity.TreeNode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -13,45 +14,40 @@ public class Solution {
     public static void main(String[] args) {
         Integer[] nums = {3, 1, 4, null, 2};
         TreeNode t = TreeNode.create(nums);
-        System.out.println(new Solution().wordBreak("aa",Arrays.asList("a","aa")));
+        System.out.println(new Solution().wordBreak("catsanddog",Arrays.asList("cats","and","dog","dog","dog")));
     }
     Set<String> set = null;
     Map<String,List<String>> cache = new HashMap<>();
     public List<String> wordBreak(String s, List<String> wordDict) {
         set = new HashSet<>(wordDict);
         StringBuffer sb = new StringBuffer();
-        //dfs(sb,s);
-        return dfs(sb,s);
+        List<String> dfs = dfs(s);//此时的string最后都会多出一个空格
+        List<String> collect = dfs.stream().map(ls -> ls.substring(0, ls.length() - 1)).collect(Collectors.toList());
+        return collect;
     }
-
-    private List<String> dfs(StringBuffer sb, String s) {
+    //dfs且返回字符串s的拆分组合
+    private List<String> dfs(String s) {
         List<String> res = new ArrayList<>();
         if (cache.containsKey(s)) {
-            List<String> list = cache.get(s);
-            for (String ls : list) {
-                res.add(sb.append(ls).substring(1));
-            }
-            return list;
+            return cache.get(s);
         }
-
         if (s.length() == 0){
-            //res.add(sb.substring(1));
-            return new ArrayList<>();
+            res.add("");
+            return res;
         }
-
         int length = s.length();
+        //由于substring原因，从1开始
         for (int i = 1; i <= length; i++) {
-            String substring = s.substring(0, i);
-            if (!set.contains(substring)){
+            List<String> re = new ArrayList<>();
+            String prefix = s.substring(0, i);
+            if (!set.contains(prefix)){
                 continue;
             }
-            sb.append(" "+substring);
-            String substring1 = s.substring(i, length);
-            List<String> ss = dfs(sb, substring1);
-            for (String s1 : ss) {
-                res.add(new StringBuffer(sb).append(s1).substring(1));
-            }
-            sb.delete(sb.length()-substring.length()-1,sb.length());
+            String suffix = s.substring(i, length);
+            List<String> ss = dfs(suffix);
+            for (String su : ss)
+                re.add(prefix + " " + su);
+            res.addAll(re);
         }
         cache.put(s,res);
         return res;

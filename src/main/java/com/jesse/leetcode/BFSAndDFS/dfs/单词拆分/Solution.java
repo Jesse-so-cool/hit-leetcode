@@ -16,15 +16,15 @@ public class Solution {
             System.out.println(new Solution().wordBreak("leetcode",Arrays.asList("leet","code")));
         }
     Set<String> set = null;
-    Map<String,Boolean> cache = new HashMap<>();
+    Map<String,Boolean> map = new HashMap<>();
     public boolean wordBreak(String s, List<String> wordDict) {
         set = new HashSet<>(wordDict);
         return dfs(s);
     }
 
     private boolean dfs(String s) {
-        if (cache.containsKey(s))
-            return cache.get(s);
+        if (map.containsKey(s))
+            return map.get(s);
         if (set.contains(s))
             return true;
         int length = s.length();
@@ -33,7 +33,7 @@ public class Solution {
                return true;
            }
         }
-        cache.put(s,false);
+        map.put(s,false);
         return false;
     }
 }

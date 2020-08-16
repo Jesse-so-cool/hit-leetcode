@@ -1,7 +1,6 @@
 package com.jesse.leetcode.tree.序列化;
 
 import com.jesse.leetcode.entity.TreeNode;
-import com.sun.org.apache.regexp.internal.RE;
 
 import java.util.LinkedList;
 

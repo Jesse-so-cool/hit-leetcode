@@ -1,4 +1,4 @@
-package com.jesse.leetcode.左右指针滑动窗口.滑动窗口的最大值;
+package com.jesse.leetcode.deque;
 
 import com.google.gson.Gson;
 

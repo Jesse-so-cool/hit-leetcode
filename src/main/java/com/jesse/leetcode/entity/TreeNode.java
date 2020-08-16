@@ -50,7 +50,19 @@ public class TreeNode {
             preOrder(root.right);
         }
     }
-
+    public String serialize() {
+        TreeNode root = this;
+        if (root == null) return "";
+        StringBuilder sb = new StringBuilder();
+        helper(root, sb);
+        return sb.substring(0, sb.length() - 1);
+    }
+    private void helper(TreeNode root, StringBuilder sb) {
+        if (root == null) return;
+        sb.append(root.val).append(",");
+        helper(root.left, sb);
+        helper(root.right, sb);
+    }
     public static void midOrder(TreeNode root) {//利用递归实现前序遍历，输出打印结果
         if (root != null) {
             midOrder(root.left);

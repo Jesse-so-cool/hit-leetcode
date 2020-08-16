@@ -13,7 +13,7 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        String S = "a", T = "aa";
+        String S = "asdvgfgfg", T = "ff";
         System.out.println(new Solution().minWindow(S, T));
     }
 
