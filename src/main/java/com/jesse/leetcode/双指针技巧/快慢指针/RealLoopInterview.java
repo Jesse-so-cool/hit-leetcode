@@ -11,10 +11,13 @@ public class RealLoopInterview {
      * 如何判断两个无环单链表有没有交叉点
      * 如何判断两个有环单链表有没有交叉点
      * 如何判断一个单链表有没有环, 并找出入环点
-     *
-     * 首先我们先写一个函数用来 判断一个单向链表是否有环，如果有则返回入环节点，如果没有返回null.
      */
 
+    /**
+     * 首先我们先写一个函数用来 判断一个单向链表是否有环，如果有则返回入环节点，如果没有返回null.
+     * @param head
+     * @return
+     */
     public ListNode detectCycle(ListNode head) {
         ListNode fast;
         ListNode slow;
