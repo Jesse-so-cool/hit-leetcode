@@ -29,7 +29,6 @@ public class Heap implements Sort{
             maxHeapify(nums,0,i);
         }
 
-        System.out.println(new Gson().toJson(nums));
 
     }
     public void sort2(int[] nums) {
@@ -79,7 +78,7 @@ public class Heap implements Sort{
     }
 
     //对堆开始最大堆化
-    //堆调整的时间复杂度是O(nlog n)
+    //堆调整的时间复杂度是O(log n)
     private void maxHeapify(int[] nums, int i, int length) {
         //节点k的左、右子节点为2k+1和2k+2。
         int l = 2*i+1;

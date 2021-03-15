@@ -56,7 +56,7 @@ public class Quick implements Sort{
     private int partition(int[] nums, int low, int high) {
 
         final int random = new Random().nextInt(high-low) + low;
-        //现在最后一位是我们选中的基准值
+        //nums[random]是我们选中的基准值
         swap(nums,random,high);
 
         //从左到右用每个数和基准值比较，若比基准值小，则放到指针 i 所指向的位置。循环完毕后，i 指针之前的数都比基准值小
