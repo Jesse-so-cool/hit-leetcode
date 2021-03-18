@@ -10,7 +10,7 @@ package com.jesse.leetcode.面经扣来的题;
 public class EraseOverlapIntervals {
 
     public int eraseOverlapIntervals(int[][] intervals) {
-
+        return -1;
     }
 
 }

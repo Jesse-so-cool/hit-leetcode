@@ -17,6 +17,8 @@ public class LRUCache {
         lruCache.put(4,1);
         System.out.println(lruCache.get(1));
         System.out.println(lruCache.get(2));
+        System.out.println(Thread.currentThread().getName());
+
     }
 
     //小贴士
