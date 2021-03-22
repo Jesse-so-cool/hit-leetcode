@@ -10,11 +10,11 @@ import java.util.PriorityQueue;
  */
 public class Solution {
 
-        public static void main(String[] args) {
-                int[] nums = {-2147483648,-2147483648,2147483647,-2147483648,-2147483648,-2147483648,2147483647,2147483647,2147483647,2147483647,-2147483648,2147483647,-2147483648};
+    public static void main(String[] args) {
+        int[] nums = {-2147483648, -2147483648, 2147483647, -2147483648, -2147483648, -2147483648, 2147483647, 2147483647, 2147483647, 2147483647, -2147483648, 2147483647, -2147483648};
 
-                System.out.println(new Gson().toJson(new Solution().medianSlidingWindow(nums,2)));
-        }
+        System.out.println(new Gson().toJson(new Solution().medianSlidingWindow(nums, 2)));
+    }
 
     public double[] medianSlidingWindow(int[] nums, int k) {
         int len = nums.length;
@@ -25,12 +25,12 @@ public class Solution {
 
         MedianFinder medianFinder = new MedianFinder();
         for (int i = 0; i < len; i++) {
-            if (i < k-1){
+            if (i < k - 1) {
                 medianFinder.addNum(nums[i]);
-            }else {
+            } else {
                 medianFinder.addNum(nums[i]);
-                res[i-k+1] = medianFinder.findMedian();
-                medianFinder.remove(nums[i-k+1]);
+                res[i - k + 1] = medianFinder.findMedian();
+                medianFinder.remove(nums[i - k + 1]);
             }
         }
         return res;
@@ -39,11 +39,12 @@ public class Solution {
     class MedianFinder {
         PriorityQueue<Long> max;
         PriorityQueue<Long> min;
+
         /**
          * initialize your data structure here.
          */
         public MedianFinder() {
-            max = new PriorityQueue<>((x, y) -> Long.compare(y,x));
+            max = new PriorityQueue<>((x, y) -> Long.compare(y, x));
             min = new PriorityQueue<>();
         }
 

@@ -6,6 +6,9 @@ import java.util.Map;
 /**
  * 最小覆盖子串
  *
+ * 输入：s = "ADOBECODEBANC", t = "ABC"
+ * 输出："BANC"
+ *
  * @author jesse hsj
  * @date 2020/6/23 10:21
  */
