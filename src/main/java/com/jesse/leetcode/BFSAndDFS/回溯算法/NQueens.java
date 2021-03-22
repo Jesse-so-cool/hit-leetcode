@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 错误答案
+ * 皇后彼此不能相互攻击，也就是说：任何两个皇后都不能处于同一条横行、纵行或斜线上。
  * @author jesse hsj
  * @date 2020/6/12 14:47
  */
@@ -14,7 +16,7 @@ public class NQueens {
     static List<List<String>> ans = new ArrayList<>();
 
     public static void main(String[] args) {
-        int n = 3;
+        int n = 4;
         new NQueens().solute(n);
         System.out.println(new Gson().toJson(ans));
     }

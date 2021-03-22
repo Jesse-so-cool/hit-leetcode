@@ -2,10 +2,7 @@ package com.jesse.leetcode.BFSAndDFS.bfs;
 
 import com.jesse.leetcode.entity.MyTreeNode;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * BFS:在一幅「图」中找到从起点start到终点target的最近距离
@@ -17,7 +14,7 @@ public class BFS {
 
     //基本BFS框架
     int BFS(MyTreeNode start, MyTreeNode target) {
-        Queue<MyTreeNode> q = new LinkedList<>(); // 核心数据结构
+        Deque<MyTreeNode> q = new LinkedList<>(); // 核心数据结构
         Set<MyTreeNode> visited = new HashSet<>(); // 避免走回头路
 
         q.offer(start); // 将起点加入队列
@@ -31,13 +28,15 @@ public class BFS {
                 MyTreeNode cur = q.poll();
                 /* 划重点：这里判断是否到达终点 */
                 if (cur == target)
-                return step;
+                    return step;
                 /* 将 cur 的相邻节点加入队列 */
-                for (MyTreeNode x : cur.adj())
+                for (MyTreeNode x : cur.adj()){
                     if (!visited.contains(x)) {
-                    q.offer(x);
-                    visited.add(x);
+                        q.offer(x);
+                        visited.add(x);
                     }
+                }
+
             }
             /* 划重点：更新步数在这里 */
             step++;
