@@ -14,7 +14,7 @@ public class NQueens {
     static List<List<String>> ans = new ArrayList<>();
 
     public static void main(String[] args) {
-        int n = 2;
+        int n = 3;
         new NQueens().solute(n);
         System.out.println(new Gson().toJson(ans));
     }
@@ -24,7 +24,7 @@ public class NQueens {
         for (int i = 0; i < n; i++) {
             StringBuffer sb = new StringBuffer();
             for (int i1 = 0; i1 < n; i1++) {
-                sb.append(".");
+                sb.append("口");
             }
             list.add(sb.toString());
         }

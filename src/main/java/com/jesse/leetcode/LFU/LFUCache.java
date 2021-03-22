@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * LFU -> 对应原理图
+ * 最不经常使用（LFU）
  * @author jesse hsj
  * @date 2021/3/15 16:36
  */
@@ -22,9 +23,69 @@ public class LFUCache {
         System.out.println(lruCache.get(1));
         System.out.println(lruCache.get(3));
         System.out.println(lruCache.get(4));
+
+
+
+        new Thread(new SoulutionTask1(), "1234").start();
+        new Thread(new SoulutionTask2(), "ABC").start();
+
+
+    }
+    static Object lock = new Object();
+    static class SoulutionTask implements Runnable{
+
+        static int value = 0;
+        @Override
+        public void run() {
+            while (value <= 100){
+                synchronized (lock){
+                    System.out.println(Thread.currentThread().getName() + ":" + value++);
+                    lock.notify();
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
-    int capacity;
+    static class SoulutionTask1 implements Runnable {
+        @Override
+        public void run() {
+            for (int i = 1; i <= 52; i = i+2) {
+                synchronized (lock) {
+                    System.out.println(Thread.currentThread().getName() + ":" + i + (i+1));
+                    lock.notify();
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    static class SoulutionTask2 implements Runnable {
+        @Override
+        public void run() {
+            for (char i = 'A'; i <= 'Z'; i++) {
+                synchronized (lock) {
+                    System.out.println(Thread.currentThread().getName() + ":" + i );
+                    lock.notify();
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+        int capacity;
     Map<Integer, Node<Integer, Integer>> cache = new HashMap<>();
     Map<Integer, DoubleNodeList> frequentMap = new HashMap<>();
     int minFrequent;
